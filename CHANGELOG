@@ -1,0 +1,23 @@
+The changelog contains detailed line by line code changes.
+Please refer to commit message for a short version.
+
+
+v1.1
+=====================================
+Implemented Logj4 logging method
+Added BufferedInputStream for better performance
+Excel file imported to buildpath
+Absolute paths replaced by relative project folder paths
+All throws declarations replaced by more intuitive try-catch blocks
+Renamed variables and methods for intuitive reference
+Relevant sections added to TestSuite.xlsx
+ - waitmode, runmode, selectortype
+
+
+v1
+=====================================
+
+Initial version
+Selenium WebDriver 3.4 and Java 1.8 compiler
+JUnit has not been implemented
+Build tools like Apache Ant or Docker will be implemented in later versions.

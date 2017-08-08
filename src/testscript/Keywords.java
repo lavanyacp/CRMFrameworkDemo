@@ -9,6 +9,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Keywords{
@@ -54,28 +55,34 @@ public class Keywords{
 		driver.findElement(By.xpath(prop.getProperty(selectorname))).sendKeys(data);
 	}
 
-	public void clickElement(String objecttype, String objectname, boolean waitmode){
-		System.out.println("click : "+objecttype+objectname+waitmode);
-		switch(objecttype){
+	public void clickElement(String selectortype, String selectorname, boolean waitmode){
+		System.out.println("click : "+selectortype+selectorname+waitmode);
+		switch(selectortype){
 		case "id":
-			driver.findElementById((prop.getProperty(objectname))).click();
+			driver.findElementById((prop.getProperty(selectorname))).click();
 			break;
 		case "name":
-			driver.findElementByName(prop.getProperty(objectname)).click();
+			driver.findElementByName(prop.getProperty(selectorname)).click();
 			break;
 		case "xpath":
-			driver.findElementByXPath(prop.getProperty(objectname)).click();
+			driver.findElementByXPath(prop.getProperty(selectorname)).click();
 			break;
 		case "linktext":
-			driver.findElementByLinkText(prop.getProperty(objectname)).click();
+			driver.findElementByLinkText(prop.getProperty(selectorname)).click();
 			break;
 		default:
-			System.out.println("Invalid/null object type");
+			System.out.println("Invalid/null selector type");
 			break;
 
 		}
 	}
 
+	public void selectItem(String data, String selectortype, String selectorname, boolean waitmode) {
+		System.out.println("select : "+data+selectortype+selectorname+waitmode);
+		Select selector = new Select(driver.findElement(By.xpath(prop.getProperty(selectorname))));
+		selector.selectByVisibleText(data);
+	}
+	
 	protected void finalize(){
 		prop.clear();
 		try {

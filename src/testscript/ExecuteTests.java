@@ -83,8 +83,8 @@ public class ExecuteTests {
 			if(datalist.get(i).equals("launchBrowser")){
 				//String keyword=(String) datalist.get(i);
 				//String data=(String) datalist.get(i+1);
-				//String objecttype=(String) datalist.get(i+2);
-				//String objectname=(String) datalist.get(i+3);
+				//String selectortype=(String) datalist.get(i+2);
+				//String selectorname=(String) datalist.get(i+3);
 				boolean runmode=(boolean) datalist.get(i+4);
 				//boolean waitmode=(boolean) datalist.get(i+5);
 				if(runmode){
@@ -102,22 +102,33 @@ public class ExecuteTests {
 
 			if(datalist.get(i).equals("inputData")){
 				String data=(String) datalist.get(i+1);
-				String objecttype=(String) datalist.get(i+2);
-				String objectname=(String) datalist.get(i+3);
+				String selectortype=(String) datalist.get(i+2);
+				String selectorname=(String) datalist.get(i+3);
 				boolean runmode=(boolean) datalist.get(i+4);
 				boolean waitmode=(boolean) datalist.get(i+5);
 				if(runmode){
-					keywords.inputData(data, objecttype, objectname, waitmode);
+					keywords.inputData(data, selectortype, selectorname, waitmode);
 				}
 			}
 
 			if(datalist.get(i).equals("clickElement")){
-				String objecttype=(String) datalist.get(i+2);
-				String objectname=(String) datalist.get(i+3);
+				String selectortype=(String) datalist.get(i+2);
+				String selectorname=(String) datalist.get(i+3);
 				boolean runmode=(boolean) datalist.get(i+4);
 				boolean waitmode=(boolean) datalist.get(i+5);
 				if(runmode){
-					keywords.clickElement(objecttype, objectname, waitmode);
+					keywords.clickElement(selectortype, selectorname, waitmode);
+				}
+			}
+			
+			if(datalist.get(i).equals("selectItem")){
+				String data=(String) datalist.get(i+1);
+				String selectortype=(String) datalist.get(i+2);
+				String selectorname=(String) datalist.get(i+3);
+				boolean runmode=(boolean) datalist.get(i+4);
+				boolean waitmode=(boolean) datalist.get(i+5);
+				if(runmode){
+					keywords.selectItem(data, selectortype, selectorname, waitmode);
 				}
 			}
 		}
